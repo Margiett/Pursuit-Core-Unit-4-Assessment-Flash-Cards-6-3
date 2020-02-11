@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,16 @@
 		579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579023A023F2EE3B000AA216 /* Assets.xcassets */; };
 		579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */; };
 		579023AF23F2EE3B000AA216 /* Unit4AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */; };
+		9F3FCCD223F301C3007F8FCD /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 9F3FCCD123F301C3007F8FCD /* NetworkHelper */; };
+		9F3FCCD523F301DE007F8FCD /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 9F3FCCD423F301DE007F8FCD /* DataPersistence */; };
+		9F3FCCD823F301FC007F8FCD /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9F3FCCD723F301FC007F8FCD /* ImageKit */; };
+		9F3FCCDA23F30348007F8FCD /* FlashCardsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCD923F30348007F8FCD /* FlashCardsTab.swift */; };
+		9F3FCCDD23F3055C007F8FCD /* FlashCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCDC23F3055C007F8FCD /* FlashCardsController.swift */; };
+		9F3FCCDF23F305B6007F8FCD /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCDE23F305B6007F8FCD /* CreateController.swift */; };
+		9F3FCCE123F305EC007F8FCD /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCE023F305EC007F8FCD /* SearchController.swift */; };
+		9F3FCCE423F309E2007F8FCD /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCE323F309E2007F8FCD /* CardsView.swift */; };
+		9F3FCCE623F30A8C007F8FCD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCE523F30A8C007F8FCD /* SearchView.swift */; };
+		9F3FCCE823F30B29007F8FCD /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3FCCE723F30B29007F8FCD /* CreateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +48,13 @@
 		579023AA23F2EE3B000AA216 /* Unit4AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unit4AssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit4AssessmentTests.swift; sourceTree = "<group>"; };
 		579023B023F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F3FCCD923F30348007F8FCD /* FlashCardsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsTab.swift; sourceTree = "<group>"; };
+		9F3FCCDC23F3055C007F8FCD /* FlashCardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsController.swift; sourceTree = "<group>"; };
+		9F3FCCDE23F305B6007F8FCD /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
+		9F3FCCE023F305EC007F8FCD /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		9F3FCCE323F309E2007F8FCD /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		9F3FCCE523F30A8C007F8FCD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		9F3FCCE723F30B29007F8FCD /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F3FCCD523F301DE007F8FCD /* DataPersistence in Frameworks */,
+				9F3FCCD223F301C3007F8FCD /* NetworkHelper in Frameworks */,
+				9F3FCCD823F301FC007F8FCD /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +99,7 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				9F3FCCE223F309A2007F8FCD /* UIViews */,
 				5790239723F2EE39000AA216 /* AppDelegate.swift */,
 				5790239923F2EE39000AA216 /* SceneDelegate.swift */,
 				5790239B23F2EE39000AA216 /* ViewController.swift */,
@@ -86,6 +107,7 @@
 				579023A023F2EE3B000AA216 /* Assets.xcassets */,
 				579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */,
 				579023A523F2EE3B000AA216 /* Info.plist */,
+				9F3FCCDB23F304C2007F8FCD /* ViewControllers */,
 			);
 			path = Unit4Assessment;
 			sourceTree = "<group>";
@@ -97,6 +119,27 @@
 				579023B023F2EE3B000AA216 /* Info.plist */,
 			);
 			path = Unit4AssessmentTests;
+			sourceTree = "<group>";
+		};
+		9F3FCCDB23F304C2007F8FCD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9F3FCCD923F30348007F8FCD /* FlashCardsTab.swift */,
+				9F3FCCDC23F3055C007F8FCD /* FlashCardsController.swift */,
+				9F3FCCDE23F305B6007F8FCD /* CreateController.swift */,
+				9F3FCCE023F305EC007F8FCD /* SearchController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9F3FCCE223F309A2007F8FCD /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F3FCCE323F309E2007F8FCD /* CardsView.swift */,
+				9F3FCCE523F30A8C007F8FCD /* SearchView.swift */,
+				9F3FCCE723F30B29007F8FCD /* CreateView.swift */,
+			);
+			path = UIViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +158,11 @@
 			dependencies = (
 			);
 			name = Unit4Assessment;
+			packageProductDependencies = (
+				9F3FCCD123F301C3007F8FCD /* NetworkHelper */,
+				9F3FCCD423F301DE007F8FCD /* DataPersistence */,
+				9F3FCCD723F301FC007F8FCD /* ImageKit */,
+			);
 			productName = Unit4Assessment;
 			productReference = 5790239423F2EE39000AA216 /* Unit4Assessment.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +213,11 @@
 				Base,
 			);
 			mainGroup = 5790238B23F2EE39000AA216;
+			packageReferences = (
+				9F3FCCD023F301C3007F8FCD /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */,
+				9F3FCCD323F301DE007F8FCD /* XCRemoteSwiftPackageReference "DataPersistence" */,
+				9F3FCCD623F301FC007F8FCD /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 5790239523F2EE39000AA216 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,9 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F3FCCDA23F30348007F8FCD /* FlashCardsTab.swift in Sources */,
+				9F3FCCE623F30A8C007F8FCD /* SearchView.swift in Sources */,
+				9F3FCCDF23F305B6007F8FCD /* CreateController.swift in Sources */,
+				9F3FCCE423F309E2007F8FCD /* CardsView.swift in Sources */,
+				9F3FCCE823F30B29007F8FCD /* CreateView.swift in Sources */,
 				5790239C23F2EE39000AA216 /* ViewController.swift in Sources */,
+				9F3FCCE123F305EC007F8FCD /* SearchController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
+				9F3FCCDD23F3055C007F8FCD /* FlashCardsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +531,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F3FCCD023F301C3007F8FCD /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/NetworkHelperSPM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+		9F3FCCD323F301DE007F8FCD /* XCRemoteSwiftPackageReference "DataPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/DataPersistence.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		9F3FCCD623F301FC007F8FCD /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F3FCCD123F301C3007F8FCD /* NetworkHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F3FCCD023F301C3007F8FCD /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */;
+			productName = NetworkHelper;
+		};
+		9F3FCCD423F301DE007F8FCD /* DataPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F3FCCD323F301DE007F8FCD /* XCRemoteSwiftPackageReference "DataPersistence" */;
+			productName = DataPersistence;
+		};
+		9F3FCCD723F301FC007F8FCD /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F3FCCD623F301FC007F8FCD /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5790238C23F2EE39000AA216 /* Project object */;
 }
