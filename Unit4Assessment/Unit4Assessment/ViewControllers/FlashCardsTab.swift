@@ -12,24 +12,24 @@ import DataPersistence
 class FlashCardsTab: UITabBarController {
  
     //MARK: Step 1: setting up data persistence and its delegate
- private var dataPersistence = DataPersistence<FlashCard>(filename: "savedFlashCards.plist")
+ private var dataPersistence = DataPersistence<FlashCardModel>(filename: "savedFlashCards.plist")
     
     private var userPreference = UserPreference()
  
  private lazy var flashCardVC: FlashCardsController = {
-     
-     let controller = FlashCardsController()
-     controller.tabBarItem = UITabBarItem(title: "cards", image: UIImage(systemName: "eyeglasses"), tag: 0)
-     // MARK:  this is where the injection happens
-     controller.dataPersistence = dataPersistence
-     return controller
+    let viewController = FlashCardsController()
+    viewController.tabBarItem = UITabBarItem(title: "Cards", image: UIImage(systemName:
+        "questionmark.circle"), tag: 0)
+    viewController.dataPersistence = dataPersistence
+    return viewController
      
  }()
- 
+  
  private lazy var createVC: CreateController = {
       
       let controller = CreateController()
-      controller.tabBarItem = UITabBarItem(title: "create", image: UIImage(systemName: "folder"), tag: 1)
+      controller.tabBarItem = UITabBarItem(title: "create", image: UIImage(systemName: "square.and.pencil"), tag: 1)
+    //controller.dataPersistence = dataPersistence
     controller.createVar = dataPersistence
     
     //MARK: why is not working !!!!!!!! Come back to it !!

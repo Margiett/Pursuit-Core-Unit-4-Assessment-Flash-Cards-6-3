@@ -16,6 +16,7 @@ class SearchView: UIView {
         
         sb.autocapitalizationType = .none
         sb.placeholder = "search for card"
+        sb.backgroundColor = .red
         
         return sb
         
@@ -29,7 +30,7 @@ class SearchView: UIView {
         
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
-        cv.backgroundColor = .systemGroupedBackground
+        cv.backgroundColor = .blue
         return cv
     }()
     

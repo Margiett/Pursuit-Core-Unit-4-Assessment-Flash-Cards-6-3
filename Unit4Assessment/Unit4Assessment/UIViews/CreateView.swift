@@ -14,21 +14,24 @@ class CreateView: UIView {
         let textV = UITextField()
         textV.autocapitalizationType = .none
         textV.placeholder = "Enter quiz title"
+        textV.backgroundColor = .purple
         return textV
     }()
     
-    public lazy var createTextFieldOne: UITextField = {
+    public lazy var createTextFieldOne: UITextView = {
         
-        let one = UITextField()
+        let one = UITextView()
         one.autocapitalizationType = .none
-        one.placeholder = "Enter First Quiz Fact"
+        one.text = "Enter First Quiz Fact"
+        one.backgroundColor = .gray
         return one
     }()
     
-    public lazy var secondQuizFact: UITextField = {
-        let second = UITextField()
+    public lazy var secondQuizFact: UITextView = {
+        let second = UITextView()
         second.autocapitalizationType = .none
-        second.placeholder = "Enter Second Quiz fact"
+        second.text = "Enter Second Quiz fact"
+        second.backgroundColor = .green
         return second
         
     }()

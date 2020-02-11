@@ -11,14 +11,14 @@ import UIKit
 class CardsView: UIView {
     
     // made the collectionView
-    public lazy var collectionV: UICollectionView = {
+    public lazy var collectionView: UICollectionView = {
         // create layout for collection view
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
-        cv.backgroundColor = .systemGroupedBackground
+        cv.backgroundColor = .yellow
         return cv
     }()
     
@@ -40,15 +40,15 @@ class CardsView: UIView {
     
     
     private func setUpCollectionView(){
-        addSubview(collectionV)
+        addSubview(collectionView)
         
-        collectionV.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionV.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionV.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
