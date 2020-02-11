@@ -9,6 +9,8 @@
 import UIKit
 
 class SearchView: UIView {
+    
+    
     public lazy var searchBar: UISearchBar = {
         let sb = UISearchBar()
         

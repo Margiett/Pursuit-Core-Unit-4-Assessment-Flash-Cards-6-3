@@ -22,6 +22,7 @@ class CardsView: UIView {
         return cv
     }()
     
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -35,6 +36,9 @@ class CardsView: UIView {
     private func commonInit() {
         setUpCollectionView()
     }
+    
+    
+    
     private func setUpCollectionView(){
         addSubview(collectionV)
         
