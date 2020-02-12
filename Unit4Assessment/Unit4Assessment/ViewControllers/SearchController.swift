@@ -54,7 +54,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
         let itemWidth: CGFloat = maxSize.width
-        let itemHeight: CGFloat = maxSize.height * 0.3
+        let itemHeight: CGFloat = maxSize.height * 0.15
       
         return CGSize(width: itemWidth, height: itemHeight)
     }
@@ -77,10 +77,7 @@ extension SearchController: UICollectionViewDataSource {
         fatalError("failed to downcast")
         }
         let selectedCard = flashCardsDidSetSearch[indexPath.row]
-        
-
-
-        cell.delegate = self
+        //cell.delegate = self
         cell.backgroundColor = .lightGray
         
         cell.configureCell(for: selectedCard)

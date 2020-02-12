@@ -10,6 +10,7 @@ import UIKit
  
 protocol FlashCardButtonDelegate: AnyObject {
     func moreButtonPressed(_ collectionViewCell: FlashCardCell, flashCard: FlashCardModel)
+    //func didSelectAddButton(_ searchCellPro: SearchCell, aSearchCard: FlashCardModel)
      
 }
 
