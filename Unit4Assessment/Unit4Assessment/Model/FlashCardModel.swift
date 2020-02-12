@@ -22,3 +22,6 @@ struct FlashCardModel: Codable & Equatable {
     let quizTitle: String
     let facts: [String]
 }
+
+
+

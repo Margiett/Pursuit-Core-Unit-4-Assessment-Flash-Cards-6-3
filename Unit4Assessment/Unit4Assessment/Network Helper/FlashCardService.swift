@@ -13,9 +13,9 @@ public enum ServiceError: Error {
   case contentsNotFound
   case decodingError(Error)
 }
-
 class FlashCardService {
-  public static func fetchCards() throws -> [FlashCardModel] {
+    
+  public static func getData() throws -> [FlashCardModel] {
     guard let path = Bundle.main.path(forResource: "cards", ofType: "json") else {
       throw ServiceError.resourcePathDoesNotExist
     }
@@ -30,6 +30,7 @@ class FlashCardService {
     }
   }
 }
+
 
 
 //public enum AppleServiceError: Error {

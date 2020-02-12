@@ -16,11 +16,11 @@ public var dataPersistence: DataPersistence<FlashCardModel>!
     
     private let flashCardView = CardsView()
     
-    private var newsCardsDidSet = [FlashCardModel]() {
+    private var saveCardsDidSet = [FlashCardModel]() {
         didSet{
             self.flashCardView.collectionView.reloadData()
-            if newsCardsDidSet.isEmpty {
-                flashCardView.collectionView.backgroundView = EmptyView(title: "Flash Cards", message: "Flash Cards were not saved")
+            if saveCardsDidSet.isEmpty {
+               flashCardView.collectionView.backgroundView = EmptyView(title: "Flash Cards", message: "Flash Cards were not saved")
             } else {
                 flashCardView.collectionView.backgroundView = nil
                 
@@ -33,34 +33,65 @@ public var dataPersistence: DataPersistence<FlashCardModel>!
     
     override func viewDidLoad() {
       super.viewDidLoad()
-          delegateAndDataSources()
-        flashCardView.collectionView.register(FlashCardCell.self, forCellWithReuseIdentifier: "FlashCardCell")
+        flashCardView.collectionView.dataSource = self
+        flashCardView.collectionView.delegate = self
+        
+        
+flashCardView.collectionView.register(FlashCardCell.self, forCellWithReuseIdentifier: "FlashCardCell")
         view.backgroundColor = .cyan
+        fetchCards()
         
       }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchCards()
+    }
     
-      func delegateAndDataSources(){
-        flashCardView.collectionView.delegate = self
-        flashCardView.collectionView.dataSource = self
-      }
+    private func fetchCards() {
+        do {
+            saveCardsDidSet = try dataPersistence.loadItems()
+        } catch {
+            showAlert(title: "there was an loading error", message: "Error: \(error)")
+        }
+    }
     
 
+}
+extension FlashCardsController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // this is where you return the actual size of the cell
+        let maxSize:CGSize = UIScreen.main.bounds.size
+        let spacingBetweenItems: CGFloat = 8
+        let numberOfItems:CGFloat = 1
+        //this is to change the height of the cell
+        let itemHeight:CGFloat = maxSize.height * 0.3
+        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
+        let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
+    
+    // we call this code because is an action and we want it to tranfer data
+//    func collectionView(_collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+//        
+//    }
+  
 }
 
 extension FlashCardsController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsCardsDidSet.count
+        return saveCardsDidSet.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlashCardCell", for: indexPath) as? FlashCardCell else{
-            fatalError("failed to downcast to FlashCard Cell")
+            fatalError("failed to downcast")
         }
         
-        let selectedFlashCard = newsCardsDidSet[indexPath.row]
+        let selectedFlashCard = saveCardsDidSet[indexPath.row]
         cell.configureCell(for: selectedFlashCard)
         cell.delegate = self
+        cell.backgroundColor = .gray
         
         return cell
     }
@@ -68,17 +99,7 @@ extension FlashCardsController: UICollectionViewDataSource{
     
 }
 
-extension FlashCardsController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxSize:CGSize = UIScreen.main.bounds.size
-        let spacingBetweenItems: CGFloat = 8
-        let numberOfItems:CGFloat = 1
-        let itemHeight:CGFloat = maxSize.height * 0.3
-        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
-        let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
-        return CGSize(width: itemWidth, height: itemHeight)
-    }
-}
+
 
 extension FlashCardsController: FlashCardButtonDelegate{
     func moreButtonPressed(_ collectionViewCell: FlashCardCell, flashCard: FlashCardModel) {
@@ -93,7 +114,7 @@ extension FlashCardsController: FlashCardButtonDelegate{
     }
     
     private func deleteFlashCard(_ flashCard: FlashCardModel){
-        guard let index = newsCardsDidSet.firstIndex(of: flashCard) else {
+        guard let index = saveCardsDidSet.firstIndex(of: flashCard) else {
             return
         }
         
@@ -108,10 +129,13 @@ extension FlashCardsController: FlashCardButtonDelegate{
 
 extension FlashCardsController: DataPersistenceDelegate{
     func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        fetchCards()
         
     }
     
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        
+        fetchCards()
+
     }
+
 }
