@@ -18,7 +18,7 @@ import Foundation
 //}
 
 struct FlashCardModel: Codable & Equatable {
-    let id: String
+   // let id: String
     let quizTitle: String
     let facts: [String]
 }

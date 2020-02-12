@@ -13,10 +13,9 @@ import DataPersistence
 class FlashCardsController: UIViewController {
 
 public var dataPersistence: DataPersistence<FlashCardModel>!
-    
     private let flashCardView = CardsView()
     
-    private var saveCardsDidSet = [FlashCardModel]() {
+    public var saveCardsDidSet = [FlashCardModel]() {
         didSet{
             self.flashCardView.collectionView.reloadData()
             if saveCardsDidSet.isEmpty {
