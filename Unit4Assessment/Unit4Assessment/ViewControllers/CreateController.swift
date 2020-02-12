@@ -13,7 +13,7 @@ class CreateController: UIViewController {
     var dp:DataPersistence<FlashCardModel>!
     //public var createVar: DataPersistence<FlashCardModel>!
     private let createView = CreateView()
-    var flashCard: FlashCardModel?
+    var flashCard: FlashCardModel!
     
     //      lazy var titleTF = create.createText
     //      lazy var quizFact1 = create.createTextFieldOne
@@ -55,21 +55,18 @@ class CreateController: UIViewController {
         showAlert(title: "Done", message: "Your new Quiz card has been created")
         flashCard = FlashCardModel(quizTitle: titleOfQuiz, facts: [factOne, secondFact])
         
-        
-        if dp.hasItemBeenSaved(FlashCardModel){
-            showAlert(title: "Dupicated Flashcards", message: "Create a unique flash card")
+        if dp.hasItemBeenSaved(flashCard) {
+            showAlert(title: "Duplicate Flashcard", message: "No Duplicate Allowed")
         } else {
             do {
-                try dp.createItem(FlashCardModel)
-                showAlert(title: "Your Fun Fact is being saved", message: " It was successfully saved")
+                try dp.createItem(flashCard)
+                showAlert(title: "QuizFact is Saving .. ", message: "Quiz Fact was Successfully saved")
             } catch {
-                showAlert(title: "Your quiz fact is being saved", message: "failed to save try again")
+                showAlert(title: "Error Saving", message: "Save failed")
             }
         }
     }
-    
 }
-
 extension CreateController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Enter flashcard fact" && textView.textColor == UIColor.lightGray {
