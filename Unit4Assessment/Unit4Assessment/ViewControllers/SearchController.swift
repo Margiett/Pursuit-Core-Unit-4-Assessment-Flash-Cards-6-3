@@ -52,6 +52,14 @@ class SearchController: UIViewController {
         searchView.collectionV.register(SearchCell.self, forCellWithReuseIdentifier: "searchCell")
         view.backgroundColor = .purple
         
+        
+            do {
+                flashCardsDidSetSearch = try FlashCardService.getData()
+                
+            } catch {
+                showAlert(title: "issues loading", message: "Error \(error)")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -13,8 +13,10 @@ class CreateView: UIView {
     public lazy var createText: UITextField = {
         let textV = UITextField()
         textV.autocapitalizationType = .none
+        textV.autocorrectionType = .yes
         textV.placeholder = "Enter quiz title"
-        textV.backgroundColor = .purple
+        textV.textAlignment = .center
+        textV.backgroundColor = .gray
         return textV
     }()
     
@@ -22,6 +24,8 @@ class CreateView: UIView {
         
         let one = UITextView()
         one.autocapitalizationType = .none
+        one.autocorrectionType = .yes
+        one.textAlignment = .center
         one.text = "Enter First Quiz Fact"
         one.backgroundColor = .gray
         return one
@@ -30,8 +34,10 @@ class CreateView: UIView {
     public lazy var secondQuizFact: UITextView = {
         let second = UITextView()
         second.autocapitalizationType = .none
+        second.autocorrectionType = .yes
+        second.textAlignment = .center
         second.text = "Enter Second Quiz fact"
-        second.backgroundColor = .green
+        second.backgroundColor = .gray
         return second
         
     }()

@@ -101,6 +101,17 @@ extension FlashCardsController: UICollectionViewDataSource{
 
 extension FlashCardsController: FlashCardButtonDelegate{
     func moreButtonPressed(_ collectionViewCell: FlashCardCell, flashCard: FlashCardModel) {
+        let action = UIAlertController(title: "action is needed.", message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete \(flashCard.quizTitle)?", style: .destructive) { (alertAction) in self.deleteFlashCard(flashCard)
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let action2 = [deleteAction, cancelAction]
+        action2.forEach{ action.addAction($0)}
+        present(action, animated:  true, completion:  nil)
+    }
+    
+    func didSelectCreateButton(_ collectionViewCell: FlashCardCell, flashCard: FlashCardModel) {
         let actionSheet = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete \(flashCard.quizTitle)?", style: .destructive) { (alertAction) in
             self.deleteFlashCard(flashCard)

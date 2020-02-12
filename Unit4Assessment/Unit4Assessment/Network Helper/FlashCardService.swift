@@ -16,7 +16,7 @@ public enum ServiceError: Error {
 class FlashCardService {
     
   public static func getData() throws -> [FlashCardModel] {
-    guard let path = Bundle.main.path(forResource: "cards", ofType: "json") else {
+    guard let path = Bundle.main.path(forResource: "JsonInfo", ofType: "json") else {
       throw ServiceError.resourcePathDoesNotExist
     }
     guard let json = FileManager.default.contents(atPath: path) else {

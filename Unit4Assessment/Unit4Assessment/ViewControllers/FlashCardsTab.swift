@@ -30,11 +30,11 @@ class FlashCardsTab: UITabBarController {
       let controller = CreateController()
       controller.tabBarItem = UITabBarItem(title: "create", image: UIImage(systemName: "square.and.pencil"), tag: 1)
     controller.dp = dataPersistence
-    controller.createVar = dataPersistence
+    
     
     //MARK: why is not working !!!!!!!! Come back to it !!
     // step 6: setting up data persistence and its delegate
-      // controller.dataPersistence.delegate = controller
+      // controller.dp.delegate = controller
 
  
       return controller

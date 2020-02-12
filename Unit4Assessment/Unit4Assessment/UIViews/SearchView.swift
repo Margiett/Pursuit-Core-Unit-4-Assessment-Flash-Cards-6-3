@@ -22,7 +22,7 @@ class SearchView: UIView {
         
     }()
     
-        // made the collectionView
+     
     public lazy var collectionV: UICollectionView = {
         // create layout for collection view
         let layout = UICollectionViewFlowLayout()
@@ -30,7 +30,7 @@ class SearchView: UIView {
         
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
-        cv.backgroundColor = .blue
+        cv.backgroundColor = .gray
         return cv
     }()
     

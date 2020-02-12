@@ -12,7 +12,7 @@ class CardsView: UIView {
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for flashcards..."
+        searchBar.placeholder = "Search for flashcards."
         return searchBar
     }()
     
