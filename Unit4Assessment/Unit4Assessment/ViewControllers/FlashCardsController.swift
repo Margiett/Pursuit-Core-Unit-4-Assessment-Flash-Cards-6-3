@@ -58,6 +58,8 @@ flashCardView.collectionView.register(FlashCardCell.self, forCellWithReuseIdenti
     
 
 }
+
+//MARK: Delegate !
 extension FlashCardsController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // this is where you return the actual size of the cell
@@ -70,20 +72,17 @@ extension FlashCardsController: UICollectionViewDelegateFlowLayout{
         let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
     }
-    
-    // we call this code because is an action and we want it to tranfer data
-//    func collectionView(_collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-//        
-//    }
+
   
 }
-
+//MARK: DataSource !
 extension FlashCardsController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return saveCardsDidSet.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlashCardCell", for: indexPath) as? FlashCardCell else{
             fatalError("failed to downcast")
         }

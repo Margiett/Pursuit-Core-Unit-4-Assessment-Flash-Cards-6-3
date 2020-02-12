@@ -68,4 +68,23 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension SearchController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return flashCardsDidSetSearch.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCell else{
+        fatalError("failed to downcast")
+        }
+        let selectedCard = flashCardsDidSetSearch[indexPath.row]
+        
+
+
+        cell.delegate = self
+        cell.backgroundColor = .lightGray
+        
+        cell.configureCell(for: selectedCard)
+        return cell
+    }
+}
 
