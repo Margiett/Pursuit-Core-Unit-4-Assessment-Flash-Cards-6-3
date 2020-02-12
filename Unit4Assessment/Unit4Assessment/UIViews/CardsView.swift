@@ -10,6 +10,12 @@ import UIKit
 
 class CardsView: UIView {
     
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for flashcards..."
+        return searchBar
+    }()
+    
     // made the collectionView
     public lazy var collectionView: UICollectionView = {
         // create layout for collection view
@@ -34,10 +40,19 @@ class CardsView: UIView {
     }
     
     private func commonInit() {
+        setupSearchBar()
         setUpCollectionView()
     }
     
-    
+    private func setupSearchBar(){
+        addSubview(searchBar)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
     
     private func setUpCollectionView(){
         addSubview(collectionView)
@@ -45,7 +60,7 @@ class CardsView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)

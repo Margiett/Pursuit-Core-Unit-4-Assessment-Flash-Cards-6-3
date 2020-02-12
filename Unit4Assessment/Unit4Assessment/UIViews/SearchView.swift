@@ -58,8 +58,8 @@ class SearchView: UIView {
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor)
+                      searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+                      searchBar.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
@@ -69,10 +69,10 @@ class SearchView: UIView {
         collectionV.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionV.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            collectionV.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionV.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+             collectionV.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+                      collectionV.leadingAnchor.constraint(equalTo: leadingAnchor),
+                      collectionV.trailingAnchor.constraint(equalTo: trailingAnchor),
+                      collectionV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 

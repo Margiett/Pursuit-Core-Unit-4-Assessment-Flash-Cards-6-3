@@ -56,9 +56,10 @@ class CreateView: UIView {
         createText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            createText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            createText.leadingAnchor.constraint(equalTo: leadingAnchor),
-            createText.trailingAnchor.constraint(equalTo: trailingAnchor)
+          createText.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            createText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            createText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            createText.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05)
         ])
     }
     private func setupCreateTextFieldOne() {
@@ -67,8 +68,10 @@ class CreateView: UIView {
         
         NSLayoutConstraint.activate([
             createTextFieldOne.topAnchor.constraint(equalTo: createText.bottomAnchor, constant: 8),
-            createTextFieldOne.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            createTextFieldOne.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            createTextFieldOne.leadingAnchor.constraint(equalTo: createText.leadingAnchor),
+            createTextFieldOne.trailingAnchor.constraint(equalTo: createText.trailingAnchor),
+            createTextFieldOne.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
+
         ])
     }
     private func setupSecondQuizFact() {
@@ -77,9 +80,11 @@ class CreateView: UIView {
         
         NSLayoutConstraint.activate([
             
-            secondQuizFact.topAnchor.constraint(equalTo: createTextFieldOne.bottomAnchor, constant: 8),
-            secondQuizFact.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            secondQuizFact.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            secondQuizFact.centerYAnchor.constraint(equalTo: createTextFieldOne.bottomAnchor, constant: self.frame.height * 0.15),
+                secondQuizFact.heightAnchor.constraint(equalTo: createTextFieldOne.heightAnchor),
+                secondQuizFact.widthAnchor.constraint(equalTo: createTextFieldOne.widthAnchor, multiplier: 1),
+                secondQuizFact.centerXAnchor.constraint(equalTo: createTextFieldOne.centerXAnchor)
+
         
         ])
     }
