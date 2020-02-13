@@ -115,6 +115,7 @@ extension FlashCardsController: FlashCardButtonDelegate{
         let actionSheet = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete \(flashCard.quizTitle)?", style: .destructive) { (alertAction) in
             self.deleteFlashCard(flashCard)
+            self.flashCardView.collectionView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let actions = [deleteAction, cancelAction]
