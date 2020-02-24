@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchView: UIView {
-    
+    //lazy var only get created when it gets called. like a reference
     
     public lazy var searchBar: UISearchBar = {
         let sb = UISearchBar()
@@ -20,7 +20,7 @@ class SearchView: UIView {
         
         return sb
         
-    }()
+    }() // this is a closure . 
     
      
     public lazy var collectionV: UICollectionView = {

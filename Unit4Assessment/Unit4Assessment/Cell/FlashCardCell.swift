@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: A protocol defines a blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality. The protocol can then be adopted by a class, structure, or enumeration to provide an actual implementation of those requirements.
+
 protocol FlashCardButtonDelegate: AnyObject {
     func moreButtonPressed(_ collectionViewCell: FlashCardCell, flashCard: FlashCardModel)
     //func didSelectAddButton(_ searchCellPro: SearchCell, aSearchCard: FlashCardModel)
@@ -58,8 +60,9 @@ class FlashCardCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.numberOfLines = 2
+        
         label.textAlignment = .center
-        label.backgroundColor = .systemGray
+        label.backgroundColor = .systemBlue
         label.isUserInteractionEnabled = true
         return label
     }()
@@ -81,7 +84,7 @@ class FlashCardCell: UICollectionViewCell {
            setupEditButtonConstrainsts()
            setupTitleLabelConstrainsts()
            setupFactsLabelConstrainsts()
-        setupFactLabelTwo()
+           setupFactLabelTwo()
            addGestureRecognizer(longpressGesture)
        }
   
@@ -132,6 +135,8 @@ class FlashCardCell: UICollectionViewCell {
     
     //MARK: Constraints !
     
+    //MARK: translatesAutoresizingMaskIntoConstraints. A Boolean value that determines whether the view's autoresizing mask is translated into Auto Layout constraints.
+    
     private func setupEditButtonConstrainsts(){
         addSubview(editButton)
         editButton.translatesAutoresizingMaskIntoConstraints = false
@@ -161,16 +166,17 @@ class FlashCardCell: UICollectionViewCell {
             factLabel.topAnchor.constraint(equalTo: editButton.bottomAnchor),
             factLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             factLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            factLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+//            factLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
     private func setupFactLabelTwo(){
         addSubview(factLabelTwo)
         
         factLabelTwo.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            factLabelTwo.topAnchor.constraint(equalTo: editButton.bottomAnchor),
+            factLabelTwo.topAnchor.constraint(equalTo: factLabel.bottomAnchor),
             factLabelTwo.leadingAnchor.constraint(equalTo: leadingAnchor),
             factLabelTwo.trailingAnchor.constraint(equalTo: trailingAnchor),
             factLabelTwo.bottomAnchor.constraint(equalTo: bottomAnchor)

@@ -15,9 +15,6 @@ class CreateController: UIViewController {
     private let createView = CreateView()
     var flashCard: FlashCardModel!
     
-    //      lazy var titleTF = create.createText
-    //      lazy var quizFact1 = create.createTextFieldOne
-    //      lazy var quizFact2 = create.secondQuizFact
     
     
     override func loadView() {

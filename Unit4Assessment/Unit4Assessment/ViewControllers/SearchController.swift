@@ -78,7 +78,7 @@ class SearchController: UIViewController {
         
     }
 }
-
+//MARK: Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define. ... Generics are one of the most powerful features of Swift, and much of the Swift standard library is built with generic code.
 extension SearchController: DataPersistenceDelegate {
     func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
         print("It was saved")
